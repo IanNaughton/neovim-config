@@ -29,26 +29,29 @@ return require('packer').startup(function(use)
 		branch = 'v2.x',
 		requires = {
 			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{                                      -- Optional
+			{'neovim/nvim-lspconfig'},              -- Required
+			{                                       -- Optional
 				'williamboman/mason.nvim',
 				run = function()
 					pcall(vim.cmd, 'MasonUpdate')
 				end,
 			},
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+			{'williamboman/mason-lspconfig.nvim'},  -- Optional
 
 			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},     -- Required
-			{'hrsh7th/cmp-buffer'},     -- Required
-			{'hrsh7th/cmp-nvim-lsp'}, -- Required
-			{'hrsh7th/cmp-nvim-lsp'},     -- Required
-			{'hrsh7th/cmp-nvim-lua'},     -- Required
+			{'hrsh7th/nvim-cmp'},                   -- Required
+			{'hrsh7th/cmp-buffer'},                 -- Required
+			{'hrsh7th/cmp-nvim-lsp'},               -- Required
+			{'hrsh7th/cmp-nvim-lsp'},               -- Required
+			{'hrsh7th/cmp-nvim-lua'},               -- Required
 			{'saadparwaiz1/cmp_luasnip'},
 
 			-- Snippets
-			{'L3MON4D3/LuaSnip'},     -- Required
+			{'L3MON4D3/LuaSnip'},                   -- Required
 			{'rafamadriz/friendly-snippets'},
 		}
-	}	
+	}
+    use ('airblade/vim-gitgutter')
+    use ('vim-airline/vim-airline')
+    use ('vim-airline/vim-airline-themes')
 end)
