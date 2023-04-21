@@ -17,13 +17,18 @@ return require('packer').startup(function(use)
 		as = 'kanagawa',
 		config = function()
 			vim.cmd('colorscheme kanagawa')
-		end})
-	use ('nvim-treesitter/nvim-treesitter', {run =':TSUpdate'})
+    end})
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+    use ('nvim-treesitter/nvim-treesitter', {run =':TSUpdate'})
 	use ('nvim-treesitter/playground')
 	use ('theprimeagen/harpoon')
 	use ('mbbill/undotree')
 	use ('tpope/vim-fugitive')
-
+    use 'nvim-tree/nvim-web-devicons'
+    use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
@@ -52,6 +57,6 @@ return require('packer').startup(function(use)
 		}
 	}
     use ('airblade/vim-gitgutter')
-    use ('vim-airline/vim-airline')
-    use ('vim-airline/vim-airline-themes')
+    --use ('vim-airline/vim-airline')
+    --use ('vim-airline/vim-airline-themes')
 end)
